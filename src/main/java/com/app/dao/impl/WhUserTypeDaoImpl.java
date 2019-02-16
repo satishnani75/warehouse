@@ -1,0 +1,51 @@
+package com.app.dao.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate5.HibernateTemplate;
+import org.springframework.stereotype.Repository;
+
+import com.app.idao.IWhUserTypeDao;
+import com.app.model.WhUserType;
+
+@Repository
+public class WhUserTypeDaoImpl implements IWhUserTypeDao {
+
+	@Autowired
+	private HibernateTemplate ht;
+	
+	
+	@Override
+	public Integer saveWhUserType(WhUserType wutobj) {
+		
+		return (Integer) ht.save(wutobj);
+	}
+
+	@Override
+	public void updateWhUserType(WhUserType wutobj) {
+
+        ht.update(wutobj);
+
+	}
+
+	@Override
+	public void deleteWhUserType(Integer wutid) {
+
+            ht.delete(new WhUserType(wutid));
+
+	}
+
+	@Override
+	public WhUserType getWhUserTypeById(Integer wutid) {
+		
+		return ht.get(WhUserType.class, wutid);
+	}
+
+	@Override
+	public List<WhUserType> getAllWhUserTypes() {
+		
+		return ht.loadAll(WhUserType.class) ;
+	}
+
+}
