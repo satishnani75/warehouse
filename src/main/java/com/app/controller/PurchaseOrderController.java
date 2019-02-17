@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.app.excelexport.PurchaseOrderExcepExp;
 import com.app.model.PurchaseOrder;
 import com.app.model.ShipmentType;
-import com.app.model.WhUserType;
+import com.app.model.WhuserType;
 import com.app.service.IPurchaseOrderService;
 import com.app.service.IShipmentTypeService;
 import com.app.service.IWhUserTypeService;
@@ -47,7 +47,7 @@ public class PurchaseOrderController {
 			  
 			   // whuser integration 
 			   
-	        List<WhUserType> wlist = whuService.getAllWhUserTypes();		   
+	        List<WhuserType> wlist = whuService.getAllWhUserTypes();		   
 			   
 	                     
 	        map.addAttribute("whusr", wlist);             
@@ -76,7 +76,7 @@ public class PurchaseOrderController {
 		   
 		   // whuser integration
 		   
-		   List<WhUserType> wlist = whuService.getAllWhUserTypes();		   
+		   List<WhuserType> wlist = whuService.getAllWhUserTypes();		   
 		   
            
 	        map.addAttribute("whusr", wlist);  

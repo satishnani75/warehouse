@@ -26,7 +26,8 @@ import com.app.model.PurchaseOrder;
 import com.app.model.ShipmentType;
 import com.app.model.Uom;
 import com.app.model.User;
-import com.app.model.WhUserType;
+
+import com.app.model.WhuserType;
 
 @EnableWebMvc //it is Spring WEB MVC AppConfig
 @EnableTransactionManagement // enable commit/rollback
@@ -58,7 +59,7 @@ public class AppConfig implements WebMvcConfigurer  {
 		sf.setDataSource(dsObj());
 		sf.setHibernateProperties(props());
 		
-		sf.setAnnotatedClasses(ShipmentType.class,Uom.class,OrderMethod.class,WhUserType.class,User.class,Documents.class,Item.class,PurchaseOrder.class); //Model class names
+		sf.setAnnotatedClasses(ShipmentType.class,Uom.class,OrderMethod.class,WhuserType.class,User.class,Documents.class,Item.class,PurchaseOrder.class); //Model class names
 		return sf;
 	}
 	

@@ -32,7 +32,7 @@ public class PurchaseOrder {
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="whuser_fk")
-	private WhUserType vendor;
+	private WhuserType vendor;
 	
 	@Column(name="rfno")
 	private String refno;
@@ -84,11 +84,11 @@ public class PurchaseOrder {
 		this.ordermode = ordermode;
 	}
 
-	public WhUserType getVendor() {
+	public WhuserType getVendor() {
 		return vendor;
 	}
 
-	public void setVendor(WhUserType vendor) {
+	public void setVendor(WhuserType vendor) {
 		this.vendor = vendor;
 	}
 

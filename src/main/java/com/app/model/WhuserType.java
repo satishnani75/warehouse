@@ -1,5 +1,6 @@
 package com.app.model;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,44 +11,44 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="wh_usertype_tab")
-public class WhUserType {
+public class WhuserType {
 
-	
+
 	@Id
 	@GeneratedValue(generator="whgen")
 	@GenericGenerator(name="whgen", strategy="increment")
 	@Column(name="uid")
 	private Integer userId;
-	
+
 	@Column(name="usrtype")
 	private String utype;
-	
+
 	@Column(name="ucode")
 	private String ucode;
-	
+
 	@Column(name="ufor")
 	private String userfor;
-		
+
 	@Column(name="email")
 	private String email;
-	
+
 	@Column(name="contact")
 	private String ucontact;
-	
+
 	@Column(name="idtype")
 	private String idType;
-	
+
 	@Column(name="otrid")
 	private String otherId;
-	
+
 	@Column(name="idno")
 	private String idnumber;
 
-	public WhUserType() {
+	public WhuserType() {
 		super();
 	}
 
-	public WhUserType(Integer userId) {
+	public WhuserType(Integer userId) {
 		super();
 		this.userId = userId;
 	}
@@ -60,7 +61,7 @@ public class WhUserType {
 		this.userId = userId;
 	}
 
-	
+
 
 	public String getUcode() {
 		return ucode;
@@ -133,8 +134,13 @@ public class WhUserType {
 				+ ", idnumber=" + idnumber + "]";
 	}
 
-	
 
-	
-	
+
+
+
 }
+
+
+
+
+

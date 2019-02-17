@@ -123,8 +123,10 @@ public class UomController {
 	@RequestMapping("/ueditone")
 	public String showEdit(@RequestParam Integer uid,ModelMap map) {
 		
-		
+		// getting the id from ui and passing it to service metnod
 		               Uom st= service.getUomById(uid);
+		               
+		               // passing uom object to ui
 		               
 		               map.addAttribute("uom", st);
 		

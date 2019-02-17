@@ -30,7 +30,7 @@ public class UomValidator implements Validator {
 		                     
 		// uom model code validatioan
 		                     
-		  if(Pattern.matches("[A-z]  {4,6}  ", uom.getUomModel()))   {
+		  if(Pattern.matches("[A-Z]  {4,6}  ", uom.getUomModel()))   {
 			  
 			  errors.rejectValue("uomModel", null, "enter valid uom  ");
 			  

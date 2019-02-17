@@ -7,7 +7,8 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.app.idao.IWhUserTypeDao;
-import com.app.model.WhUserType;
+import com.app.model.WhuserType;
+
 
 @Repository
 public class WhUserTypeDaoImpl implements IWhUserTypeDao {
@@ -17,13 +18,13 @@ public class WhUserTypeDaoImpl implements IWhUserTypeDao {
 	
 	
 	@Override
-	public Integer saveWhUserType(WhUserType wutobj) {
+	public Integer saveWhUserType(WhuserType wutobj) {
 		
 		return (Integer) ht.save(wutobj);
 	}
 
 	@Override
-	public void updateWhUserType(WhUserType wutobj) {
+	public void updateWhUserType(WhuserType wutobj) {
 
         ht.update(wutobj);
 
@@ -32,20 +33,20 @@ public class WhUserTypeDaoImpl implements IWhUserTypeDao {
 	@Override
 	public void deleteWhUserType(Integer wutid) {
 
-            ht.delete(new WhUserType(wutid));
+            ht.delete(new WhuserType(wutid));
 
 	}
 
 	@Override
-	public WhUserType getWhUserTypeById(Integer wutid) {
+	public WhuserType getWhUserTypeById(Integer wutid) {
 		
-		return ht.get(WhUserType.class, wutid);
+		return ht.get(WhuserType.class, wutid);
 	}
 
 	@Override
-	public List<WhUserType> getAllWhUserTypes() {
+	public List<WhuserType> getAllWhUserTypes() {
 		
-		return ht.loadAll(WhUserType.class) ;
+		return ht.loadAll(WhuserType.class) ;
 	}
 
 }

@@ -11,8 +11,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.web.servlet.view.document.AbstractXlsxView;
 
-import com.app.model.Uom;
-import com.app.model.WhUserType;
+import com.app.model.WhuserType;
 
 public class WhUserTypeExcelView extends AbstractXlsxView{
 
@@ -20,7 +19,7 @@ public class WhUserTypeExcelView extends AbstractXlsxView{
 	protected void buildExcelDocument(Map<String, Object> model, Workbook workbook, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
-		   List<WhUserType> list= (List<WhUserType>)model.get("list");
+		   List<WhuserType> list= (List<WhuserType>)model.get("list");
 		
 		         Sheet sheet=   workbook.createSheet("whusertypedata");
 		                    
@@ -58,13 +57,13 @@ Row row=sheet.createRow(0);
 		
 	}
 
-	private void showBody(Sheet sheet, List<WhUserType> list) {
+	private void showBody(Sheet sheet, List<WhuserType> list) {
 		
 		
 
 		int rowcout=1;
 		
-		for(WhUserType um:list) {
+		for(WhuserType um:list) {
 			
 			Row row=		sheet.createRow(rowcout++);	
 			

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.idao.IWhUserTypeDao;
-import com.app.model.WhUserType;
+import com.app.model.WhuserType;
 import com.app.service.IWhUserTypeService;
 
 @Service
@@ -21,7 +21,7 @@ public class WhUserTypeServiceImpl implements IWhUserTypeService {
 	
 	@Override
 	@Transactional
-	public Integer saveWhUserType(WhUserType wutobj) {
+	public Integer saveWhUserType(WhuserType wutobj) {
 
 
 		return dao.saveWhUserType(wutobj);
@@ -29,7 +29,7 @@ public class WhUserTypeServiceImpl implements IWhUserTypeService {
 
 	@Override
 	@Transactional
-	public void updateWhUserType(WhUserType wutobj) {
+	public void updateWhUserType(WhuserType wutobj) {
 
           dao.updateWhUserType(wutobj);
 
@@ -44,14 +44,14 @@ public class WhUserTypeServiceImpl implements IWhUserTypeService {
 
 	@Override
 	@Transactional(readOnly=true)
-	public WhUserType getWhUserTypeById(Integer wutid) {
+	public WhuserType getWhUserTypeById(Integer wutid) {
 		
 		return dao.getWhUserTypeById(wutid);
 	}
 
 	@Override
 	@Transactional(readOnly=true)
-	public List<WhUserType> getAllWhUserTypes() {
+	public List<WhuserType> getAllWhUserTypes() {
 		
 		return dao.getAllWhUserTypes();
 	}

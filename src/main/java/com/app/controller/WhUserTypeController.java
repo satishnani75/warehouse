@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.app.excelexport.WhUserTypeExcelView;
-import com.app.model.WhUserType;
+import com.app.model.WhuserType;
 import com.app.service.IWhUserTypeService;
 
 @Controller
@@ -26,14 +26,14 @@ public class WhUserTypeController {
 	
 	@RequestMapping("/reg")
 	public String showRegpage(ModelMap map) {
-		map.addAttribute("whuserType", new WhUserType());
+		map.addAttribute("whuserType", new WhuserType());
 		
 		
 		return "WhUserTypRegister" ;
 	}
 	
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
-	public String saveWhUser(@ModelAttribute WhUserType whuserType , ModelMap map) {
+	public String saveWhUser(@ModelAttribute WhuserType whuserType , ModelMap map) {
 		
 		int id=service.saveWhUserType(whuserType);
 		
@@ -41,7 +41,7 @@ public class WhUserTypeController {
 		
 		map.addAttribute("insertmessage", msg);
 		
-		map.addAttribute("whuserType", new WhUserType());
+		map.addAttribute("whuserType", new WhuserType());
 		return "WhUserTypRegister";
 	}
 		//3 view all
@@ -50,7 +50,7 @@ public class WhUserTypeController {
 	@RequestMapping("/viewall")
 	public String viewall(ModelMap map) {
 		
-		        List<WhUserType> list= service.getAllWhUserTypes();
+		        List<WhuserType> list= service.getAllWhUserTypes();
 		
 		        map.addAttribute("listall", list);
 		        
@@ -81,7 +81,7 @@ public class WhUserTypeController {
 	@RequestMapping("/viewone")
 	public String viewOne(@RequestParam Integer wid,ModelMap map) {
 		
-	WhUserType wh=service.getWhUserTypeById(wid);
+	WhuserType wh=service.getWhUserTypeById(wid);
 	
 	map.addAttribute("vone", wh);
 	
@@ -95,7 +95,7 @@ public class WhUserTypeController {
 	@RequestMapping("/showedit")
 	public String showEdit(@RequestParam Integer wid,ModelMap map) {
 		
-		     WhUserType wt=service.getWhUserTypeById(wid);
+		     WhuserType wt=service.getWhUserTypeById(wid);
 		
 		     
 		     map.addAttribute("whuserType",wt);
@@ -106,7 +106,7 @@ public class WhUserTypeController {
 	}
 	
 	@RequestMapping(value="/update",method=RequestMethod.POST)
-	public String updatePage(@ModelAttribute WhUserType whuserType,ModelMap map ) {
+	public String updatePage(@ModelAttribute WhuserType whuserType,ModelMap map ) {
 		
 		service.updateWhUserType(whuserType);
 		
@@ -126,7 +126,7 @@ public class WhUserTypeController {
 	@RequestMapping("/excelexport")
 	public ModelAndView exportAll() {
 		
-		                 List<WhUserType> wlist=service.getAllWhUserTypes();
+		                 List<WhuserType> wlist=service.getAllWhUserTypes();
 		
 		return new ModelAndView(new WhUserTypeExcelView(), "list", wlist);
 	}
@@ -136,7 +136,7 @@ public class WhUserTypeController {
 		
 	
 		
-              WhUserType wh2 =		service.getWhUserTypeById(wid);
+              WhuserType wh2 =		service.getWhUserTypeById(wid);
 		
 		return new ModelAndView( new WhUserTypeExcelView(), "list", Arrays.asList(wh2));
 	}
