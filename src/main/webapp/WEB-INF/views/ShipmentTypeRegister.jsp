@@ -104,6 +104,8 @@ description : <textarea name="shipdesc" ></textarea>
 
 							</form:select>
 
+
+                       <p style="color: red;">  <form:errors path="shipmentMode"    cssClass="error"   /></p>
 						</div>
 
 					</div>
@@ -119,7 +121,10 @@ description : <textarea name="shipdesc" ></textarea>
 						</div>
 
 						<div class="col-6">
+						
 							<form:input path="shipmentCode" cssClass="form-control" />
+							
+							<p style="color: red;"> <form:errors  path="shipmentCode" cssClass="error"/> </p>
 
 						</div>
 					</div>

@@ -28,8 +28,6 @@ public class OrderMethodController {
 	@Autowired
 	private OrderMethodValidator validator ;
 		
-	
-	
 	@Autowired
 	private IOrderMethodService service;
 	
@@ -58,7 +56,7 @@ public class OrderMethodController {
 		
 		// calling validator
 		
-            /* validator.validate(orderMethod, error);
+            validator.validate(orderMethod, error);
 		// check for errors
              
 		if(error.hasErrors()) 
@@ -71,9 +69,6 @@ public class OrderMethodController {
             else {
 				
 			
-            }
-             */
-             
 		
 		//save code
 		      Integer id=  service.saveOrderMethod(orderMethod);
@@ -86,6 +81,9 @@ public class OrderMethodController {
 		      
 		      map.addAttribute("orderMethod", new OrderMethod());
 		      
+		       }
+		
+		
             
 		return "OrderMethodRegister" ;
 	}

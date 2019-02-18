@@ -8,6 +8,7 @@ import javax.servlet.ServletContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,10 +20,15 @@ import com.app.model.ShipmentType;
 import com.app.pdfexport.ShipmentTypePdfView;
 import com.app.service.IShipmentTypeService;
 import com.app.util.ShipmentTypeUtill;
+import com.app.validations.ShipmentTypeValidator;
 
 @Controller
 @RequestMapping("/shipmetType")
 public class ShipmentTypeController {
+	
+	
+	@Autowired
+	private ShipmentTypeValidator validator;
 
 	@Autowired
 	private IShipmentTypeService service;
@@ -44,19 +50,29 @@ public class ShipmentTypeController {
 	}
 
 	@RequestMapping(value="/insert",method=RequestMethod.POST)
-	public String save( @ModelAttribute ShipmentType shipmentType, ModelMap map) {
+	public String save( @ModelAttribute ShipmentType shipmentType,Errors error ,ModelMap map) {
 
+		
+		validator.validate(shipmentType, error);
+		
+		if(error.hasErrors()) {
+			
+			map.addAttribute("message", " plase check for all errors");
+		}
+		else {
 		int id= service.saveShipmentType(shipmentType);
 
 		String msg= " saved with id :"+id;
 
 		//extra code 
 
-		map.addAttribute("shipmentType", new ShipmentType());
+		
 		map.addAttribute("message", msg);
+		map.addAttribute("shipmentType", new ShipmentType());
+		}
 
 
-
+		
 
 
 		return "ShipmentTypeRegister" ;

@@ -72,16 +72,18 @@ description :<textarea name="dsc"></textarea>
 							<form:select path="uomType" cssClass="form-control">
 
 
-								<form:option value=" ">--select---</form:option>
+								<form:option value="">---select---</form:option>
 
-								<form:option value="PACKAGE">package</form:option>
+								<form:option value="PACKAGE">Package</form:option>
 
 
-								<form:option value="NO PACKAGE ">no package</form:option>
+								<form:option value="NO PACKAGE ">No Package</form:option>
 
-								<form:option value="NA">NA</form:option>
+								<form:option value="NA">N/A</form:option>
 
 							</form:select>
+							
+					<p style="color: red;">		<form:errors path="uomType" cssClass="error"  /> </p>
 						</div>
 
 					</div>
@@ -96,7 +98,7 @@ description :<textarea name="dsc"></textarea>
 						<div class="col-6">
 							<form:input path="uomModel" cssClass="form-control" />
 
-							<form:errors path="uomModel" cssClass="error"></form:errors>
+					<p style="color: red;">		<form:errors path="uomModel" cssClass="error"></form:errors></p>
 						</div>
 
 					</div>
@@ -111,6 +113,8 @@ description :<textarea name="dsc"></textarea>
 						<div class="col-6">
 
 							<form:textarea path="dsc" cssClass="form-control" />
+							
+							<p style="color: red;"><form:errors path="dsc" cssClass="error"></form:errors></p>
 
 						</div>
 					</div>

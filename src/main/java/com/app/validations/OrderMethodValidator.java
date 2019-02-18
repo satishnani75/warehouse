@@ -80,11 +80,11 @@ public class OrderMethodValidator implements Validator
 			errors.rejectValue("orderDesc", null, "plz enter your discription");
 			
 			
-		}else if(odm.getOrderDesc().length()>=10 && odm.getOrderDesc().length()<=100) {
+		}/*else if(odm.getOrderDesc().length()>=10 && odm.getOrderDesc().length()<=100) {
 			
 			
 			errors.rejectValue("orderDesc", null, " your text should be b/w 10 -100 char only");
-		}
+		}*/
 		
 		
 	}

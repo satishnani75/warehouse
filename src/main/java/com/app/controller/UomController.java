@@ -59,10 +59,6 @@ public class UomController {
 		            else {
 						
 					
-		           
-		             
-		
-		
 		
 		       int id= service.saveUom(uom);
 		       

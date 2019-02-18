@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>    
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %> 
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +26,7 @@
 
 			<div class="card-header bg-info text-white">
 
-				<h2> welcome to WhUserTyp edit page </h2>
+				<h2> welcome to WhUserType Edit page </h2>
 
 			</div>
 
@@ -228,7 +230,7 @@
 
 						<div class="col-6">
 
-							<input class="btn btn-success" type="submit" value="create User">
+							<input class="btn btn-success" type="submit" value="update user">
 						</div>
 
 
@@ -238,10 +240,10 @@
 				</form:form>
 			</div>
 
-			<c:if test="${updatetmessage != null}">
+			<c:if test="${updatemessage!= null}">
 
 
-				<div class="card-footer">${updatetmessage}</div>
+				<div class="card-footer bg-warning">${updatemessage}</div>
 
 			</c:if>
 

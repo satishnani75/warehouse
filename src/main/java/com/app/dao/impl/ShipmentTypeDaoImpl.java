@@ -65,11 +65,11 @@ public class ShipmentTypeDaoImpl implements IShipmentTypeDao {
 	public boolean isShipmentCodeExist(String shpmntCode) {
 
 	    long count=0;
-		String hql= " select shipmentCode form com.app.model.ShipmentType where shipmentCode=?";
+		String hql= " select count(shipmentCode) " + " from " + ShipmentType.class.getName() + " where shipmentCode=? ";
 		 
 		        List<Long> list =(List<Long>) ht.find(hql, shpmntCode);
 		
-		        if(list!= null &&! list.isEmpty() ) {
+		        if(list!=null && ! list.isEmpty() ) {
 		        	
 		               count=  list.get(0);
 		        	
