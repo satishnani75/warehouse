@@ -2,6 +2,7 @@ package com.app.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.criterion.DetachedCriteria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
@@ -56,6 +57,8 @@ public class ShipmentTypeDaoImpl implements IShipmentTypeDao {
 	public List<Object[]> getShipmentTypeByName() {
 		
 		String hql=" select shipmentMode, count(shipmentMode) from com.app.model.ShipmentType group by shipmentMode ";
+		
+		/*DetachedCriteria hql2= DetachedCriteria.forClass(ShipmentType.class);*/		
 		
 		return (List<Object[]>) ht.find(hql);
 	}

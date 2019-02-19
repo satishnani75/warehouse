@@ -86,6 +86,9 @@ public class UomDaoImpl implements IUomDao {
 	public Map<Integer, String> getUomIdandName() {
 
 		String hql =" select uomId,uomModel " + " from " + Uom.class.getName() ;
+		
+		
+		
 		 
 	                                List<Object[]> list =	(List<Object[]>) ht.find(hql);
 		

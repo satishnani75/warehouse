@@ -147,6 +147,8 @@ description : <textarea name="shipdesc" ></textarea>
 								<form:option value="NO">no</form:option>
 
 							</form:select>
+							
+							<p style="color: red;"> <form:errors  path="enableShipment" cssClass="error"/> </p>
 						</div>
 
 
@@ -167,6 +169,8 @@ description : <textarea name="shipdesc" ></textarea>
 							B
 							<form:radiobutton path="shipmentGrade" value="C" />
 							C
+							
+							<p style="color: red;"> <form:errors  path="shipmentGrade" cssClass="error"/> </p>
 						</div>
 					</div>
 
@@ -180,6 +184,8 @@ description : <textarea name="shipdesc" ></textarea>
 						<div class="col-6">
 
 							<form:textarea path="shipdesc" cssClass="form-control"/>
+							
+							<p style="color: red;"> <form:errors  path="shipdesc" cssClass="error"/> </p>
 						</div>
 
 					</div>
