@@ -3,6 +3,8 @@ package com.app.dao.impl;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
@@ -56,11 +58,26 @@ public class ShipmentTypeDaoImpl implements IShipmentTypeDao {
 	@Override
 	public List<Object[]> getShipmentTypeByName() {
 		
-		String hql=" select shipmentMode, count(shipmentMode) from com.app.model.ShipmentType group by shipmentMode ";
+		// by using hal
+		/*String hql=" select shipmentMode, count(shipmentMode) from com.app.model.ShipmentType group by shipmentMode ";
 		
-		/*DetachedCriteria hql2= DetachedCriteria.forClass(ShipmentType.class);*/		
 		
-		return (List<Object[]>) ht.find(hql);
+                  List<Object[]> list=		(List<Object[]>) ht.find(hql);*/
+		
+		
+		DetachedCriteria hql =DetachedCriteria.forClass(ShipmentType.class)
+				
+				.setProjection(Projections.projectionList()
+				
+				.add(Projections.groupProperty("shipmentMode"))
+				.add(Projections.count("shipmentMode"))
+				);
+		
+	                         List<Object[]> list=	(List<Object[]>) ht.findByCriteria(hql);
+		
+		
+		
+		return list;
 	}
 
 	
@@ -68,9 +85,29 @@ public class ShipmentTypeDaoImpl implements IShipmentTypeDao {
 	public boolean isShipmentCodeExist(String shpmntCode) {
 
 	    long count=0;
-		String hql= " select count(shipmentCode) " + " from " + ShipmentType.class.getName() + " where shipmentCode=? ";
+	    
+	    
+		/*String hql= " select count(shipmentCode) " + " from " + ShipmentType.class.getName() + " where shipmentCode=? ";
 		 
-		        List<Long> list =(List<Long>) ht.find(hql, shpmntCode);
+		        List<Long> list =(List<Long>) ht.find(hql, shpmntCode);*/
+	    
+	    
+	    
+	    // by using detached criteria
+	    
+	    
+	          DetachedCriteria hql = DetachedCriteria.forClass(ShipmentType.class)
+	        		  
+	        		  .setProjection(Projections.projectionList()
+	        				  .add(Projections.count("shipmentCode"))
+	        				  )
+	        		  .add(Restrictions.eq("shipmentCode", shpmntCode));
+	        		  
+	        		  
+	        		  
+	        		  
+	                              @SuppressWarnings("unchecked")
+								List<Long> list		=  (List<Long>) ht.findByCriteria(hql);
 		
 		        if(list!=null && ! list.isEmpty() ) {
 		        	
