@@ -41,8 +41,8 @@ public class ItemController {
 	@RequestMapping("/reg")
 	public String showReg(ModelMap map) {
 
-System.out.println("test code from git hub");
-
+    System.out.println("test code from git hub");
+    System.out.println(" test code from sts");
 	//	Item itm = new Item();
 
 
